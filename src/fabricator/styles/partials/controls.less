@@ -1,0 +1,53 @@
+.f-controls {
+	.f-icon {
+		box-sizing: border-box;
+		width: 33.333333333%;
+		padding: 0.75em 0;
+		text-align: center;
+		float: left;
+		cursor: pointer;
+
+		&:hover:not(.f-active) {
+			fill: @color--light;
+		}
+		& when (@theme--dark = true) {
+			&:hover:not(.f-active) {
+				fill: @color--dark;
+			}
+		}
+
+		&:last-child {
+			border-right: none;
+		}
+
+		svg {
+			width: 1em;
+			height: 1em;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		use {
+			fill: @color--dark;
+		}
+		& when (@theme--dark = true) {
+			use {
+				fill: @color--light;
+			}
+		}
+	}
+
+	.f-active {
+		box-shadow: inset 0 3px 0 @color--accent;
+		background-color: @color--light;
+		use {
+			fill: @color--dark;
+		}
+		& when (@theme--dark = true) {
+			use {
+				fill: @color--light;
+			}
+		}
+	}
+	.clearfix();
+}

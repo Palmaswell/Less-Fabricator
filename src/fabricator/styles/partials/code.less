@@ -1,0 +1,121 @@
+//--
+// Github-like theme for Prism.js
+// @author Luke Askew
+// @author Mauricio Palma (Less adjustments)
+//--
+
+code,
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #1b1e20;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	tab-size: 4;
+	hyphens: none;
+	font-family: Consolas, Monaco, 'Andale Mono', monospace;
+	line-height: 18px;
+	direction: ltr;
+	cursor: text;
+}
+
+//-- Code blocks --//
+pre[class*="language-"] {
+	overflow: auto;
+	margin: 1em 0;
+	padding: 1em;
+	border-radius: 3px;
+	font-size: 0.75em !important;
+}
+
+p code,
+li code,
+table code {
+	margin: 0;
+	border-radius: 3px;
+	padding-bottom: 2px;
+	border: 1px solid darken(@color--light, 7.3%);
+	font-size: 0.75em !important;
+	&:before,
+	&:after {
+		letter-spacing: -0.2em;
+		content: "\00a0";
+	}
+}
+
+code,
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: @color--light;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #998;
+}
+
+.tag .token.punctuation {
+	color: navy;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag {
+	color: navy;
+}
+
+.token.boolean,
+.token.number {
+	color: #099;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.attr-value .punctuation:first-child {
+	color: teal;
+}
+
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #333;
+}
+
+.token.atrule,
+.token.attr-value {
+	color: #dd1144;
+}
+
+
+.token.keyword {
+	font-weight: 700;
+	color: #333;
+}
+
+.token.regex,
+.token.important {
+	color: #009926;
+}
+
+.token.important {
+	font-weight: bold;
+}
+
+.token.entity {
+	cursor: help;
+}

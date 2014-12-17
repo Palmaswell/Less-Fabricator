@@ -1,0 +1,44 @@
+//-- Theme related mixins --//
+
+.theme-background-color() when (@theme--dark = true) {
+    background-color: @color--dark;
+}
+.theme-background-color() when (@theme--dark = false) {
+    background-color: @color--lighter;
+}
+
+.theme-text-color() when (@theme--dark = true) {
+    color: @color--medium;
+}
+
+.theme-text-color() when (@theme--dark = false) {
+    color: lighten(@color--medium, 10%);
+}
+
+.theme-text-secondary-color() when (@theme--dark = true) {
+    color: @color--light;
+}
+
+.theme-text-secondary-color() when (@theme--dark = false) {
+    color: lightnen(@color--dark, 4%);
+}
+
+//-- Helper Mixins  --//
+.clearfix() {
+    &:after {
+        clear: both;
+    }
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+    }
+}
+
+.transition(@name: all; @speed: 350ms) {
+    transition: @name @speed cubic-bezier(0.86, 0, 0.07, 1) 0s;
+}
+
+.borderBox() {
+    box-sizing: border-box;
+}
