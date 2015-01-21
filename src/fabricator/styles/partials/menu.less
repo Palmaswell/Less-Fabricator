@@ -47,21 +47,18 @@
 		font-size: 0.75em;
 		line-height: 1;
 
-		.theme-text-color();
+		.theme-text-secondary-color();
 		.transition(all; @speed: 200ms);
 
 		&:hover {
 			text-decoration: none;
 			font-weight: 400;
 			background-color: @color--light;
-			.theme-text-secondary-color();
 		}
 
 		&.f-active {
 			box-shadow: inset 3px 0 0 @color--accent;
-			font-weight: 700;
 			background-color: @color--light;
-			.theme-text-secondary-color();
 
 			@media (max-width: 60em) {
 				box-shadow: inset -3px 0 0 @color--accent;

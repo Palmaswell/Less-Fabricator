@@ -10,8 +10,9 @@ html {
 }
 
 body {
-	margin: 0;
 	min-height: 100%;
+	margin: 0;
+
 	@media (max-width: 60em) {
 		.state--menu-active & {
 			width: 100%;
@@ -21,15 +22,12 @@ body {
 }
 
 .f-container {
-	.clearfix();
-	.transition();
 	position: relative;
-	z-index: 1;
 	border: solid darken(@color--light, 2%);
 	border-width: 0 0 0 1px;
 	margin-left: 14rem;
 	background-color: #fff;
-	transform: translateZ(0);
+	.transition();
 
 	@media (max-width: 60em) {
 		min-height: 100vh;
@@ -47,7 +45,7 @@ body {
 }
 
 .f-main {
-	.borderBox();
-	padding: 1em;
 	min-height: 100%;
+	padding: 1em;
+	.borderBox();
 }

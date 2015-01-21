@@ -5,7 +5,7 @@
 
 Less Fabricator is a tool for creating modular website toolkits in Less and not Sass - _think ["Tiny Bootstraps, for Every Client"](http://daverupert.com/2013/04/responsive-deliverables/#tiny-bootstraps-for-every-client)_
 
-Based on [fabricator](https://github.com/resource/fabricator) by Luke Askew
+Based on [fabricator](https://github.com/resource/fabricator) by [Luke Askew](http://lukeaskew.github.io/)
 
 ## Usage
 
