@@ -23,24 +23,25 @@ var source = require('vinyl-source-stream');
 var streamify = require('gulp-streamify');
 var uglify = require('gulp-uglify');
 
-
-// configuration
+// Configuration Control
+var srcFabricator = './src/fabricator';
+var srcToolkit = './src/toolkit';
 var config = {
 	dev: gutil.env.dev,
 	src: {
 		scripts: {
 			fabricator: [
-				'./src/fabricator/scripts/prism.js',
-				'./src/fabricator/scripts/fabricator.js'
+				srcFabricator + '/scripts/prism.js',
+				srcFabricator + '/scripts/fabricator.js'
 			],
-			toolkit: './src/toolkit/assets/scripts/toolkit.js'
+			toolkit: srcToolkit + '/assets/scripts/toolkit.js'
 		},
 		styles: {
-			fabricator: './src/fabricator/styles/fabricator.less',
-			toolkit: './src/toolkit/assets/styles/toolkit.less'
+			fabricator: srcFabricator + '/styles/fabricator.less',
+			toolkit: srcToolkit + '/assets/styles/toolkit.less'
 		},
-		images: 'src/toolkit/assets/images/**/*',
-		views: './src/toolkit/views/*.html',
+		images: srcToolkit + '/assets/images/**/*',
+		views: srcToolkit + '/views/*.html',
 		materials: [
 			'components',
 			'structures',
@@ -51,12 +52,10 @@ var config = {
 	dest: './build'
 };
 
-
 // clean
 gulp.task('clean', function (cb) {
 	del([config.dest], cb);
 });
-
 
 // styles
 gulp.task('styles:fabricator', function () {
