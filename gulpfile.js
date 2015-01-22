@@ -48,7 +48,7 @@ var config = {
 			'documentation'
 		]
 	},
-	dest: './dist'
+	dest: './build'
 };
 
 
