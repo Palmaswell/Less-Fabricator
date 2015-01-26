@@ -3,9 +3,10 @@
 @import "mixins";
 
 .f-menu {
+	@allianz-flag: 80px;
 	position: fixed;
 	top: 0;
-	right: 0;
+	left: 0;
 	z-index: 0;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -13,15 +14,15 @@
 	height: 100%;
 	font-size: 16px;
 	font-family: sans-serif;
-	.theme-background-color();
 
 	.state--menu-active & {
 		visibility: visible;
 		-webkit-overflow-scrolling: touch;
 	}
 
-	&.state--nested-nav-open {
-		.theme-nav-color();
+	@media (max-width: 60em) {
+		left: auto;
+		right: 0;
 	}
 
 	ul {
@@ -32,27 +33,23 @@
 }
 
 .f-menu__category {
-	&:first-child {
-		.f-menu__link {
-			border-top-width: 1px;
-		}
+	> .f-menu__link {
+		font-weight: 700;
 	}
 }
 
 .f-menu__link {
 	display: block;
-	padding: 1em 1em 1em 2em;
-	border: solid darken(@color--light, 10%);
+	padding: .8em;
 	border-width: 0 0 1px 0;
 	text-decoration: none;
-	font-size: 1.1rem;
-	line-height: 1;
+	font-size: .8rem;
 	cursor: pointer;
 	.theme-text-secondary-color();
 	.transition(all; @speed: 200ms);
 
 	&:hover {
-		background-color: darken(@color--light, 15%);
+		background-color: darken(@color--light, 5%);
 		.theme-text-secondary-color();
 	}
 
@@ -66,56 +63,37 @@
 	}
 }
 
-.f-menu__link--secondary {
-	padding-top: .5em;
-	padding-bottom: .5em;
-	padding-left: 1em;
-	background-color: darken(@color--light, 8%);
-	cursor: pointer;
-
-	&:before {
-		content: "\25C0";
-		display: inline-block;
-		margin-right: 10px;
-		font-size: 0.6rem;
-		line-height: 0.6rem;
-		vertical-align: middle;
-	}
-}
-
 .f-menu--sub {
-	position: absolute;
-	top: 40px;
-	right: 0;
-	z-index: 2;
-	height: 100%;
 	width: 100%;
+	max-height: 0;
 	border-left: 1px solid darken(@color--light, 10%);
-	transform: translate3d(100%, 0, 0);
+	overflow: hidden;
 	.transition(all; @speed: 200ms);
-	.theme-background-color();
-
 }
 
 &.state--open {
 	.f-menu--sub {
-		transform: translate3d((@menu-width / (@menu-width / 2)), 0, 0);
+		max-height: 1000px;
 	}
 }
 
 .f-menu-toggle {
 	position: fixed;
-	top: 40px;
-	left: 2rem;
+	top: 30px;
+	right: 2rem;
 	border: none;
 	text-align: center;
 	cursor: pointer;
 	.transition(all; @speed: 200ms);
 
+	@media (min-width: 60em) {
+		display: none;
+	}
+
 	svg {
 		display: block;
 		width: 3em;
 		height: 2em;
-		margin-bottom: 10px;
+		margin-bottom: 5px;
 	}
 }

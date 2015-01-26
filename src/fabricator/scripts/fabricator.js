@@ -51,8 +51,7 @@ fabricator.dom = {
 	primaryMenu              : document.querySelector('.f-menu'),
 	menuItems                : document.querySelectorAll('.f-menu li a'),
 	menuToggle               : document.querySelector('.f-menu-toggle'),
-	openSubMenu              : document.querySelectorAll('.js-toggle-subnav'),
-	closeSubMenu             : document.querySelectorAll('.js-close')
+	toggleSubMenu            : document.querySelectorAll('.js-toggle-subnav')
 };
 
 
@@ -181,35 +180,17 @@ fabricator.primaryMenuControls = function () {
  * @return {Object} fabricator
  */
 
-fabricator.openSubMenu = function () {
-	var triggerList = fabricator.dom.openSubMenu;
+fabricator.toggleSubMenu = function () {
+	var triggerList = fabricator.dom.toggleSubMenu;
 
-	var addClass = function() {
+	var toggleClass = function() {
 		var parentTarget      = this.parentNode;
 		var grandParentTarget = this.parentNode.parentNode.parentNode;
-		parentTarget.classList.add('state--open');
-		grandParentTarget.classList.add('state--nested-nav-open');
+		parentTarget.classList.toggle('state--open');
 	}
 
 	for (var i = 0;  i < triggerList.length; i++) {
-		triggerList[i].addEventListener('click', addClass);
-	}
-
-	return this;
-}
-
-fabricator.closeSubMenu = function() {
-	var closeTrigger = fabricator.dom.closeSubMenu;
-
-	var removeClass = function() {
-		var parentTarget      = this.parentNode.parentNode;
-		var grandParentTarget = this.parentNode.parentNode.parentNode.parentNode;
-		parentTarget.classList.remove('state--open');
-		grandParentTarget.classList.remove('state--nested-nav-open');
-	}
-
-	for (var i = 0;  i < closeTrigger.length; i++) {
-		closeTrigger[i].addEventListener('click', removeClass);
+		triggerList[i].addEventListener('click', toggleClass);
 	}
 
 	return this;
@@ -344,8 +325,7 @@ fabricator.bindCodeAutoSelect = function () {
 		.primaryMenuControls()
 		.allItemsToggles()
 		.singleItemToggle()
-		.openSubMenu()
-		.closeSubMenu()
+		.toggleSubMenu()
   		.buildColorChips()
 		.setActiveItem()
 		.bindCodeAutoSelect();
