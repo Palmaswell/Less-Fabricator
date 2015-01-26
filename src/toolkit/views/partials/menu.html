@@ -1,5 +1,4 @@
 <nav class="f-menu" role="navigation">
-
 	<div class="f-controls">
 		<div class="f-icon" data-f-toggle-control="details" title="toggle details">
 			<svg>
@@ -17,13 +16,12 @@
 			</svg>
 		</div>
 	</div>
-
 	<ul>
 		<li>
 			<a href="index.html" class="f-menu__heading">Overview</a>
 		</li>
 		<li>
-			<a href="components.html" class="f-menu__heading">Components</a>
+			<div class="f-menu__heading js-toggle-subnav">Components</div>
 			<ul>
 				{{#each components}}
 					<li>
@@ -33,7 +31,7 @@
 			</ul>
 		</li>
 		<li>
-			<a href="structures.html" class="f-menu__heading">Structures</a>
+			<div class="f-menu__heading js-toggle-subnav">Structures</div>
 			<ul>
 				{{#each structures}}
 					<li>
@@ -43,7 +41,7 @@
 			</ul>
 		</li>
 		<li>
-			<a href="templates.html" class="f-menu__heading">Templates</a>
+			<div class="f-menu__heading js-toggle-subnav">Templates</div>
 			<ul>
 				{{#each templates}}
 					<li>
@@ -53,7 +51,7 @@
 			</ul>
 		</li>
 		<li>
-			<a href="documentation.html" class="f-menu__heading">Documentation</a>
+			<div class="f-menu__heading js-toggle-subnav">Documentation</div>
 			<ul>
 				{{#each documentation}}
 					<li>

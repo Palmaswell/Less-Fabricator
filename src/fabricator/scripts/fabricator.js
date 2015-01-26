@@ -1,5 +1,6 @@
 'use strict';
 
+
 /**
  * Global `fabricator` object
  * @namespace
@@ -42,15 +43,15 @@ if (fabricator.test.localStorage) {
 	localStorage.fabricator = localStorage.fabricator || JSON.stringify(fabricator.options);
 }
 
-
 /**
  * Cache DOM
  * @type {Object}
  */
 fabricator.dom = {
-	primaryMenu: document.querySelector('.f-menu'),
-	menuItems: document.querySelectorAll('.f-menu li a'),
-	menuToggle: document.querySelector('.f-menu-toggle')
+	primaryMenu              : document.querySelector('.f-menu'),
+	menuItems                : document.querySelectorAll('.f-menu li a'),
+	menuToggle               : document.querySelector('.f-menu-toggle'),
+	subMenuToggle            :  document.querySelectorAll('.js-toggle-subnav')
 };
 
 
@@ -71,7 +72,6 @@ fabricator.buildColorChips = function () {
 	return this;
 
 };
-
 
 /**
  * Add `f-active` class to active menu item
@@ -174,6 +174,31 @@ fabricator.primaryMenuControls = function () {
 	return this;
 
 };
+
+/**
+ * Click handler for the Sub Navigation
+ * @return {Object} fabricator
+ */
+
+fabricator.subMenuToggle = function () {
+	// var triggerList = document.querySelectorAll('.js-toggle-subnav');
+	var triggerList = fabricator.dom.subMenuToggle;
+
+
+	var toggleNav = function(type, value) {
+		var parentTarget = this.parentNode;
+		parentTarget.classList.toggle('f-item-test');
+
+	}
+
+	for (var i = 0;  i < triggerList.length; i++) {
+		triggerList[i].addEventListener('click', toggleNav);
+	}
+
+
+	console.log('Good start', triggerList, fabricator.options);
+	return this;
+}
 
 
 /**
@@ -294,20 +319,22 @@ fabricator.bindCodeAutoSelect = function () {
 
 };
 
-
 /**
  * Initialization
  */
 (function () {
+
 
 	// invoke
 	fabricator
 		.primaryMenuControls()
 		.allItemsToggles()
 		.singleItemToggle()
+		.subMenuToggle()
 		.buildColorChips()
 		.setActiveItem()
 		.bindCodeAutoSelect();
+
 
 	// syntax highlighting
 	Prism.highlightAll();

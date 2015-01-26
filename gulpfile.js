@@ -32,6 +32,7 @@ var config = {
 		scripts: {
 			fabricator: [
 				srcFabricator + '/scripts/prism.js',
+				srcFabricator + '/scripts/classlist-shim.js',
 				srcFabricator + '/scripts/fabricator.js'
 			],
 			toolkit: srcToolkit + '/assets/scripts/toolkit.js'
