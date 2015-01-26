@@ -4,7 +4,14 @@
     background-color: @color--dark;
 }
 .theme-background-color() when (@theme--dark = false) {
-    background-color: @color--lighter;
+    background-color: @color--light;
+}
+
+.theme-nav-color() when (@theme--dark = true) {
+    background-color: darken(@color--dark, 15%);
+}
+.theme-nav-color() when (@theme--dark = false) {
+    background-color: darken(@color--light, 15%);
 }
 
 .theme-text-color() when (@theme--dark = true) {

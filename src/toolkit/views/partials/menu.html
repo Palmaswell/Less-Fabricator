@@ -17,45 +17,49 @@
 		</div>
 	</div>
 	<ul>
-		<li>
-			<a href="index.html" class="f-menu__heading">Overview</a>
+		<li class="f-menu__category">
+			<a href="index.html" class="f-menu__link">Overview</a>
 		</li>
-		<li>
-			<div class="f-menu__heading js-toggle-subnav">Components</div>
-			<ul>
+		<li class="f-menu__category">
+			<div class="f-menu__link js-toggle-subnav">Components</div>
+			<ul class="f-menu--sub">
+					<li class="f-menu__link f-menu__link--secondary js-close">Back</li>
 				{{#each components}}
-					<li>
-						<a href="components.html#{{id}}">{{name}}</a>
+					<li class="js-close">
+						<a href="components.html#{{id}}" class="f-menu__link">{{name}}</a>
 					</li>
 				{{/each}}
 			</ul>
 		</li>
-		<li>
-			<div class="f-menu__heading js-toggle-subnav">Structures</div>
-			<ul>
+		<li class="f-menu__category">
+			<div class="f-menu__link js-toggle-subnav">Structures</div>
+			<ul class="f-menu--sub">
+				<li class="f-menu__link f-menu__link--secondary js-close">Back</li>
 				{{#each structures}}
-					<li>
-						<a href="structures.html#{{id}}">{{name}}</a>
+					<li class="js-close">
+						<a href="structures.html#{{id}}" class="f-menu__link">{{name}}</a>
 					</li>
 				{{/each}}
 			</ul>
 		</li>
-		<li>
-			<div class="f-menu__heading js-toggle-subnav">Templates</div>
-			<ul>
+		<li class="f-menu__category">
+			<div class="f-menu__link js-toggle-subnav">Templates</div>
+			<ul class="f-menu--sub">
+				<li class="f-menu__link f-menu__link--secondary js-close">Back</li>
 				{{#each templates}}
-					<li>
-						<a href="template-{{id}}.html">{{name}}</a>
+					<li class="js-close">
+						<a href="template-{{id}}.html" class="f-menu__link">{{name}}</a>
 					</li>
 				{{/each}}
 			</ul>
 		</li>
-		<li>
-			<div class="f-menu__heading js-toggle-subnav">Documentation</div>
-			<ul>
+		<li class="f-menu__category">
+			<div class="f-menu__link js-toggle-subnav">Documentation</div>
+			<ul class="f-menu--sub">
+				<li class="f-menu__link f-menu__link--secondary js-close">Back</li>
 				{{#each documentation}}
-					<li>
-						<a href="documentation.html#{{id}}">{{name}}</a>
+					<li class="js-close">
+						<a href="documentation.html#{{id}}" class="f-menu__link">{{name}}</a>
 					</li>
 				{{/each}}
 			</ul>
